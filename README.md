@@ -15,7 +15,7 @@ Welcome to the [**Notes App**](https://ascend-notes-app-client.fly.dev/), a simp
 1. Clone the repository: https://github.com/xsarahyu/notes-app.git
 2. Navigate to the app directory: `cd app`
 3. Run the server: `wasp start db`
-4. Run the client (in a new terminal): `wasp start`
+4. Run the client (in a new terminal): `cd app` ➡️ `wasp start`
 5. The app is now live at http://localhost:3000!
 
 ## 🗂️ (Relevant) File Structure
