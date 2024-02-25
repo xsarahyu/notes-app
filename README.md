@@ -143,7 +143,7 @@ https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952b
 
 ### 👉 notes
 #### The notes test suite verifies the functionality of adding, crossing off, and deleting a note.
-https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/notes.cy.ts#L1-L45
+https://github.com/xsarahyu/notes-app/blob/91976d124fe1549ba99aec2b7f50973dca863339/app/cypress/e2e/notes.cy.ts#L1-L45
 
 ### 👉 logout
 #### The logout test suite verifies the functionality of logging out.
