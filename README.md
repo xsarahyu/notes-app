@@ -21,6 +21,7 @@ Welcome to the [**Notes App**](https://ascend-notes-app-client.fly.dev/), a simp
 ## 🗂️ (Relevant) File Structure
 The Wasp template provides many features that are irrelevant to the notes app, like Stripe payments, Google Analytics, and more. The following are the components and pages we utilized:
 
+```
 app/src
 ├── client
 │   ├── admin
@@ -58,6 +59,7 @@ app/src
 │   ├── actions.ts
 ├── shared
 │   ├── constants.ts
+```
 
 <br>
 <br>
