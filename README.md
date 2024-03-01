@@ -116,7 +116,7 @@ To run Cypress tests locally:
 6. Run the tests: `npx cypress open`
 
 ### 👉 account_settings
-#### Test: The account_settings test suite verifies the functionality of accessing the account settings page.
+#### The account_settings test suite verifies the functionality of accessing the account settings page.
 https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L1C1-L19C3
 
 ### 👉 documentation_page
