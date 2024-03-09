@@ -1,0 +1,18 @@
+import { getGptResponses as getGptResponses_ext } from 'wasp/ext-src/server/queries.js';
+import { getAllTasksByUser as getAllTasksByUser_ext } from 'wasp/ext-src/server/queries.js';
+import { getAllFilesByUser as getAllFilesByUser_ext } from 'wasp/ext-src/server/queries.js';
+import { getDownloadFileSignedURL as getDownloadFileSignedURL_ext } from 'wasp/ext-src/server/queries.js';
+import { getDailyStats as getDailyStats_ext } from 'wasp/ext-src/server/queries.js';
+import { getPaginatedUsers as getPaginatedUsers_ext } from 'wasp/ext-src/server/queries.js';
+export type GetGptResponses = typeof getGptResponses_ext;
+export declare const getGptResponses: (args: any, context: any) => Promise<any>;
+export type GetAllTasksByUser = typeof getAllTasksByUser_ext;
+export declare const getAllTasksByUser: (args: any, context: any) => Promise<any>;
+export type GetAllFilesByUser = typeof getAllFilesByUser_ext;
+export declare const getAllFilesByUser: (args: any, context: any) => Promise<any>;
+export type GetDownloadFileSignedURL = typeof getDownloadFileSignedURL_ext;
+export declare const getDownloadFileSignedURL: (args: any, context: any) => Promise<any>;
+export type GetDailyStats = typeof getDailyStats_ext;
+export declare const getDailyStats: (args: any, context: any) => Promise<any>;
+export type GetPaginatedUsers = typeof getPaginatedUsers_ext;
+export declare const getPaginatedUsers: (args: any, context: any) => Promise<any>;
