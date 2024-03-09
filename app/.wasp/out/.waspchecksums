@@ -1031,6 +1031,13 @@
     [
         [
             "file",
+            "../out/sdk/wasp/ext-src/client/app/PricingPage.tsx"
+        ],
+        "610daa302246e11bb514bb0074fef80ef71e31dc4b63fd6dbe297c0584245e85"
+    ],
+    [
+        [
+            "file",
             "../out/sdk/wasp/ext-src/client/auth/EmailVerification.tsx"
         ],
         "88eb2f83ecef70e11a0d22888a019e669848ccd181ccb2fbaed70062dde50e1a"
