@@ -7,16 +7,14 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { HiBars3 } from 'react-icons/hi2';
 import logo from '../static/logo.png';
 import DropdownUser from './DropdownUser';
-import { DOCS_URL, BLOG_URL } from '../../shared/constants';
+import { DOCS_URL } from '../../shared/constants';
 import DarkModeSwitcher from '../admin/components/DarkModeSwitcher';
 import { UserMenuItems } from '../components/UserMenuItems';
 
 const navigation = [
   { name: 'AI Scheduler (Demo App)', href: '/demo-app' },
-  { name: 'File Upload (AWS S3)', href: '/file-upload' },
-  { name: 'Pricing', href: '/pricing' },
+  // { name: 'File Upload (AWS S3)', href: '/file-upload' }, 
   { name: 'Documentation', href: DOCS_URL },
-  { name: 'Blog', href: BLOG_URL },
 ];
 
 const NavLogo = () => <img className='h-8 w-8' src={logo} alt='Your SaaS App' />;
