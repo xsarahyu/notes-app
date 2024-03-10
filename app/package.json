@@ -33,7 +33,7 @@
     "vite": "^4.3.9"
   },
   "scripts": {
-    "test": "vitest",
+    "test": "wasp test client",
     "test-ui": "wasp test client --ui --coverage.enabled=true"
   }
 }
