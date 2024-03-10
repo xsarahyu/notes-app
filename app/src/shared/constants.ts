@@ -15,7 +15,7 @@ const customerPortalProdUrl = '<your-url-here>'; // TODO: add before deploying t
 
 export const STRIPE_CUSTOMER_PORTAL_LINK = isDevEnv ? customerPortalTestUrl : customerPortalProdUrl;
 
-checkStripePortalLinksExist({ customerPortalTestUrl, customerPortalProdUrl });
+// checkStripePortalLinksExist({ customerPortalTestUrl, customerPortalProdUrl });
 
 type StripePortalUrls = {
   customerPortalTestUrl: string | undefined;
@@ -31,15 +31,15 @@ function checkStripePortalLinksExist(links: StripePortalUrls) {
     msg: '',
   };
 
-  if (testResult.success && prodResult.success) {
-    consoleMsg.color = '\x1b[32m%s\x1b[0m';
-    consoleMsg.msg = '✅ Both STRIPE_CUSTOMER_PORTAL_LINK links defined';
-  } else if (!testResult.success && !prodResult.success) {
-    consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined';
-  } else if (!testResult.success) {
-    consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined for test env';
-  } else {
-    consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined for prod env';
-  }
+  // if (testResult.success && prodResult.success) {
+  //   consoleMsg.color = '\x1b[32m%s\x1b[0m';
+  //   consoleMsg.msg = '✅ Both STRIPE_CUSTOMER_PORTAL_LINK links defined';
+  // } else if (!testResult.success && !prodResult.success) {
+  //   consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined';
+  // } else if (!testResult.success) {
+  //   consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined for test env';
+  // } else {
+  //   consoleMsg.msg = '⛔️ STRIPE_CUSTOMER_PORTAL_LINK is not defined for prod env';
+  // }
   console.log(consoleMsg.color, consoleMsg.msg);
 }
