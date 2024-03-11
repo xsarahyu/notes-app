@@ -3,24 +3,20 @@ import { renderInContext, mockServer } from "wasp/client/test";
 import { getAllTasksByUser } from "wasp/client/operations";
 import DemoAppPage from './DemoAppPage';
 
+//Simulating a server 
 const { mockQuery} = mockServer();
 
 //Tests to focus on DemoAppPage:
 
-// TEST 3: Clicking on checkbox for notes mockServer
-// TEST 4: Clicking on x to delete notes mockServer
+  //Testing CRUD tasks functionality where inside I am testing create task, update task, delete task
+    //*LEFT TO DO: READ A LIST OF TASKS */
+describe('Testing Task CRUD', () => {
 
 
-  //Testing crud task functionality (render it once and mock all of it at once)
-  describe('Testing Task CRUD', () => {
-
-
-  // Test 1
- // TEST 1: Adding a Note 
-  // TEST 2: See newly added note
-  // TEST 5: See text default "Remember to..."  
+  // TEST 1: Confirm user sees text default "Remember to..." in text field, can add task, see newly created task
   test('handles creating a new task', async () => {
 
+    //Creating Mocked Task
     const mockTasks = [
       {
         id: "1",
@@ -34,7 +30,7 @@ const { mockQuery} = mockServer();
     
     renderInContext(<DemoAppPage />);
 
-    //to ensure you see the text for new task 
+    //To ensure you see the text for new task 
     let input = screen.getByPlaceholderText('Remember to...');
     fireEvent.change(input, { target: { value: mockTasks[0].description } });
     input = screen.getByDisplayValue(mockTasks[0].description);
@@ -44,11 +40,13 @@ const { mockQuery} = mockServer();
     const addButton = screen.getByText('Add Note');
     fireEvent.click(addButton);
 
+    //This is simulating creating a server call when the note is created
     mockQuery(getAllTasksByUser, mockTasks);
 
     // Wait for asynchronous operations, then make assertions
     await waitFor(() => {
    
+      //Confirming Mock Task was added
       let newTask = screen.getByText(mockTasks[0].description)
       expect(newTask).toBeInTheDocument();
 
