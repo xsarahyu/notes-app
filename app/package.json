@@ -35,6 +35,6 @@
   },
   "scripts": {
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test-ui": "wasp test client --ui --coverage.enabled=true"
   }
 }
