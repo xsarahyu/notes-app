@@ -3,12 +3,6 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import DarkModeSwitcher from './DarkModeSwitcher';
 
-// Mock useColorMode hook to control its behavior in tests
-jest.mock('../../hooks/useColorMode', () => () => {
-  const [colorMode, setColorMode] = React.useState('light');
-  return [colorMode, setColorMode];
-});
-
 test('DarkModeSwitcher toggles color mode correctly', () => {
   const { container } = render(<DarkModeSwitcher />);
   const switcher = container.querySelector('label');
