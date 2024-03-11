@@ -8,16 +8,16 @@ const { mockQuery} = mockServer();
 
 //Tests to focus on DemoAppPage:
 
-  //Testing CRUD tasks functionality where inside I am testing create task, update task, delete task
-    //*LEFT TO DO: READ A LIST OF TASKS */
-describe('Testing Task CRUD', () => {
+  //Testing CRUD notes functionality where inside I am testing create note, update note, delete note
+    //*LEFT TO DO: READ A LIST OF noteS */
+describe('Testing Note CRUD', () => {
 
 
-  // TEST 1: Confirm user sees text default "Remember to..." in text field, can add task, see newly created task
-  test('handles creating a new task', async () => {
+  // TEST 1: Confirm user sees text default "Remember to..." in text field, can add note, see newly created note
+  test('Testing creating new note', async () => {
 
-    //Creating Mocked Task
-    const mockTasks = [
+    //Creating Mocked note
+    const mocknotes = [
       {
         id: "1",
         description: "test todo 1",
@@ -30,33 +30,35 @@ describe('Testing Task CRUD', () => {
     
     renderInContext(<DemoAppPage />);
 
-    //To ensure you see the text for new task 
+    //To ensure you see the text for new note 
     let input = screen.getByPlaceholderText('Remember to...');
-    fireEvent.change(input, { target: { value: mockTasks[0].description } });
-    input = screen.getByDisplayValue(mockTasks[0].description);
+    fireEvent.change(input, { target: { value: mocknotes[0].description } });
+    input = screen.getByDisplayValue(mocknotes[0].description);
     expect(input).toBeInTheDocument();
     
-    //Creating new task 
+    //Creating new note 
     const addButton = screen.getByText('Add Note');
     fireEvent.click(addButton);
 
     //This is simulating creating a server call when the note is created
-    mockQuery(getAllTasksByUser, mockTasks);
+    mockQuery(getAllTasksByUser, mocknotes);
 
     // Wait for asynchronous operations, then make assertions
     await waitFor(() => {
    
-      //Confirming Mock Task was added
-      let newTask = screen.getByText(mockTasks[0].description)
-      expect(newTask).toBeInTheDocument();
+      //Confirming Mock note was added
+      let newnote = screen.getByText(mocknotes[0].description)
+      expect(newnote).toBeInTheDocument();
 
     });
   });
 
 
-  // Test 2
-  test('handles test task checkbox', async () => {
-    const mockTasks = [
+  // TEST 2: Test Checking note and Unchecking note
+  test('Testing note checkbox feature', async () => {
+
+    //Creating Mocked note
+    const mocknotes = [
       {
         id: "1",
         description: "test todo 1",
@@ -69,18 +71,21 @@ describe('Testing Task CRUD', () => {
     
     renderInContext(<DemoAppPage />);
 
-    //creating a fake server call to test 
-    mockQuery(getAllTasksByUser, mockTasks);
+    //Creating a fake server call to test 
+    mockQuery(getAllTasksByUser, mocknotes);
 
      // Wait for asynchronous operations, then make assertions
     await waitFor(() => {
+
       // Assert that the checkbox is not checked
       expect(screen.getByRole("checkbox")).not.toBeChecked();
       const checkbox = screen.getByRole("checkbox");
       console.log(checkbox);
+
+      //Clicking checkbox
       fireEvent.click(checkbox)
       
-      // Wait for state to update after clicking the checkbox
+      // Wait for state to update. Check checkbox is checked
       waitFor(() => {
         expect(checkbox).toBeChecked();
       });
@@ -88,13 +93,14 @@ describe('Testing Task CRUD', () => {
   });
     
   
-  //Test 3: Deleting Note
-  test('handles deleting a task', async () => {
+  //Test 3: Deleting note
+  test('Testing deleting note', async () => {
+
     // Render the component
     renderInContext(<DemoAppPage />);
 
-    // Create mock tasks
-    const mockTasks = [
+    // Create mock notes
+    const mocknotes = [
       {
         id: "1",
         description: "Test todo 1",
@@ -105,58 +111,40 @@ describe('Testing Task CRUD', () => {
       }
     ];
 
-    //creating a fake server call to test 
-    mockQuery(getAllTasksByUser, mockTasks);
+    //Creating a fake server call to test 
+    mockQuery(getAllTasksByUser, mocknotes);
 
-    // Wait for tasks to appear in the UI
+    // Wait for note to appear in the UI
     await waitFor(() => {
+
+      //Ensure note is created
       expect(screen.getByText('Test todo 1')).toBeInTheDocument();
       
-      // Simulate the deletion action (for example, clicking a delete button)
+      // Simulate the deletion action 
       const deleteButton = screen.getByTitle('Remove task')
       fireEvent.click(deleteButton);
 
-      //wait for task to be deletde and check that it was deleted 
+      //Check that it was deleted 
       waitFor(() => {
         expect(screen.queryByText('Test todo 1')).not.toBeInTheDocument();
       });   
-  });
-
+    });
 
   });
 })
 
+//TEST 4: Verifying default text displayed for DemoAppPage
+test('Verify default text displayed', async () => {
+  renderInContext(<DemoAppPage />);
 
+  //Button text "Add Note" appears
+  const addButton = screen.getByText('Add Note');
+  expect(addButton).toBeInTheDocument();
 
+  //Iput text default "Remember to.." appears
+  let input = screen.getByPlaceholderText('Remember to...');
+  expect(input).toBeInTheDocument();
 
- 
-  // test('Ensure default title "Notes App" is displayed', () => {
-  //   // renderInContext(<DemoAppPage />);
-  //   const titleElement = getByTextContent('Notes App');
-  //   expect(titleElement).toBeInTheDocument();
-  //   // console.log("test")
-  //   // console.log(screen.getByText((_, element) => element.textContent == 'Notes App'))
-  //   // expect(screen.getByText((_, element) => element.textContent === 'Notes App')).toBeInTheDocument();
-
-  //   // renderInContext(<DemoAppPage data-testid="component" />)
-  //   // expect(screen.getByTestId('component').textContent).toBe('Notes App')
-  // });
-
-
-  test('Verify default text displayed', async () => {
-    renderInContext(<DemoAppPage />);
-
-    //to ensure you see text "Add Note" 
-    const addButton = screen.getByText('Add Note');
-    expect(addButton).toBeInTheDocument();
-
-    //to ensure you see the text default "Remember to.."
-    let input = screen.getByPlaceholderText('Remember to...');
-    expect(input).toBeInTheDocument();
-
-    //to ensure you see the text default title "Notes App"
-    // let title = screen.getByText('Notes App');
-    // expect(title).toBeInTheDocument();
-  })
+})
 
 
