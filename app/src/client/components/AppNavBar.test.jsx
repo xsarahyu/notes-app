@@ -4,7 +4,7 @@ import { screen } from "@testing-library/react";
 import AppNavBar from './AppNavBar';
 
 //Test for Rendering Navigation Links:
-test('Testing NavBar When Always True', async () => {
+test('Testing NavBar Content', async () => {
   renderInContext(<AppNavBar />);
 
   // Test 2: see the text on the page  "Documentation" 
