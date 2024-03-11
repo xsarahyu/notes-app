@@ -11,15 +11,22 @@ const { mockQuery} = mockServer();
 // TEST 4: Clicking on x to delete notes mockServer
 
 
-  // TEST 1: Adding a Note 
+  //Testing crud task functionality (render it once and mock all of it at once)
+  describe('Testing Task CRUD', () => {
+
+
+  // Test 1
+ // TEST 1: Adding a Note 
   // TEST 2: See newly added note
   // TEST 5: See text default "Remember to..."  
   test('handles creating a new task', async () => {
 
     const mockTasks = [
       {
-        id: 1,
+        id: "1",
         description: "test todo 1",
+        createdAt: new Date(),
+        time: "4:20",
         isDone: true,
         userId: 1,
       },
@@ -41,15 +48,90 @@ const { mockQuery} = mockServer();
 
     // Wait for asynchronous operations, then make assertions
     await waitFor(() => {
-      // Add your assertions here
+   
       let newTask = screen.getByText(mockTasks[0].description)
-      console.log(newTask)
       expect(newTask).toBeInTheDocument();
+
     });
   });
 
 
+  // Test 2
+  test('handles test task checkbox', async () => {
+    const mockTasks = [
+      {
+        id: "1",
+        description: "test todo 1",
+        createdAt: new Date(),
+        time: "4:20",
+        isDone: false,
+        userId: 1,
+      },
+    ];
+    
+    renderInContext(<DemoAppPage />);
 
+    //creating a fake server call to test 
+    mockQuery(getAllTasksByUser, mockTasks);
+
+     // Wait for asynchronous operations, then make assertions
+    await waitFor(() => {
+      // Assert that the checkbox is not checked
+      expect(screen.getByRole("checkbox")).not.toBeChecked();
+      const checkbox = screen.getByRole("checkbox");
+      console.log(checkbox);
+      fireEvent.click(checkbox)
+      
+      // Wait for state to update after clicking the checkbox
+      waitFor(() => {
+        expect(checkbox).toBeChecked();
+      });
+    });
+  });
+    
+  
+  //Test 3: Deleting Note
+  test('handles deleting a task', async () => {
+    // Render the component
+    renderInContext(<DemoAppPage />);
+
+    // Create mock tasks
+    const mockTasks = [
+      {
+        id: "1",
+        description: "Test todo 1",
+        createdAt: new Date(),
+        time: "4:20",
+        isDone: false,
+        userId: 1,
+      }
+    ];
+
+    //creating a fake server call to test 
+    mockQuery(getAllTasksByUser, mockTasks);
+
+    // Wait for tasks to appear in the UI
+    await waitFor(() => {
+      expect(screen.getByText('Test todo 1')).toBeInTheDocument();
+      
+      // Simulate the deletion action (for example, clicking a delete button)
+      const deleteButton = screen.getByTitle('Remove task')
+      fireEvent.click(deleteButton);
+
+      //wait for task to be deletde and check that it was deleted 
+      waitFor(() => {
+        expect(screen.queryByText('Test todo 1')).not.toBeInTheDocument();
+      });   
+  });
+
+
+  });
+})
+
+
+
+
+ 
   // test('Ensure default title "Notes App" is displayed', () => {
   //   // renderInContext(<DemoAppPage />);
   //   const titleElement = getByTextContent('Notes App');
@@ -79,14 +161,4 @@ const { mockQuery} = mockServer();
     // expect(title).toBeInTheDocument();
   })
 
-  
 
-
-  test('handles updating a task', async () => {
-    renderInContext(<DemoAppPage />);
-  });
-
-  test('handles deleting a task', async () => {
-    // Similar structure as the 'handles creating a new task' test
-  });
-// });
