@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { renderInContext } from "wasp/client/test";
 import { screen } from "@testing-library/react";
@@ -7,9 +6,15 @@ import AppNavBar from './AppNavBar';
 //Test for Rendering Navigation Links:
 test('Testing NavBar When Always True', async () => {
   renderInContext(<AppNavBar />);
+
   // Test 2: see the text on the page  "Documentation" 
-   const docText = await screen.findByText('Documentation'); 
-   expect(docText).toBeInTheDocument();
+    //Note that "docNavBarItem" is an HTML element amd  find by test is trying to get html element whose text says "Documentation"
+   const docNavBarItem = await screen.findByText('Documentation'); 
+  //  console.log("docNavBarItem");
+  //  console.log(docNavBarItem);
+
+    //  Checked if it found an object/HTML Element whose text says 'Documentation '
+   expect(docNavBarItem).toBeInTheDocument();
 });
 
 //Testing on NavBar - ALWAYS TRUE -
