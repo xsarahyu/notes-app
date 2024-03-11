@@ -1,14 +1,15 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
+import { renderInContext } from "wasp/client/test";
 import DemoAppPage from './DemoAppPage';
 
 describe('DemoAppPage', () => {
   test('renders correctly', () => {
-    render(<DemoAppPage />);
+    renderInContext(<DemoAppPage />);
     // Add your assertions here
   });
 
   test('handles creating a new task', async () => {
-    render(<DemoAppPage />);
+    renderInContext(<DemoAppPage />);
     const input = screen.getByPlaceholderText('Remember to...');
     fireEvent.change(input, { target: { value: 'Test task' } });
 
