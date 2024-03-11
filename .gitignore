@@ -4,5 +4,6 @@
 */.DS_Store
 */node_modules
 */migrations
+*/coverage
 .DS_Store
 coverage-*.json
