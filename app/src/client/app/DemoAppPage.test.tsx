@@ -146,5 +146,3 @@ test('Verify default text displayed', async () => {
   expect(input).toBeInTheDocument();
 
 })
-
-
