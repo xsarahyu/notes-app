@@ -7,69 +7,27 @@ export const navigation = [
 ];
 export const features = [
   {
-    name: 'Add Notes',
-    description: 'Describe your cool feature here.',
-    icon: '🤝',
+    name: 'Create Notes',
+    description: 'Easily compose and save your thoughts',
+    icon: '✍️',
     href: DOCS_URL,
   },
   {
-    name: 'Mark as Completed',
-    description: 'Describe your cool feature here.',
-    icon: '🔐',
+    name: 'Mark Completed',
+    description: 'Indicate task completion with a simple checkbox',
+    icon: '✅',
     href: DOCS_URL,
   },
   {
     name: 'Delete Notes',
-    description: 'Describe your cool feature here.',
-    icon: '🥞',
+    description: 'Seamlessly remove unwanted notes',
+    icon: '🗑️',
     href: DOCS_URL,
   },
   {
-    name: 'Cool Feature #4',
-    description: 'Describe your cool feature here.',
-    icon: '💸',
+    name: 'Auto-Save',
+    description: 'Enjoy peace of mind as notes are saved automatically',
+    icon: '💾',
     href: DOCS_URL,
   },
 ];
-export const testimonials = [
-  {
-    name: 'Da Boi',
-    role: 'Wasp Mascot',
-    avatarSrc: daBoiAvatar,
-    socialUrl: 'https://twitter.com/wasplang',
-    quote: "I don't even know how to code. I'm just a plushie.",
-  },
-  {
-    name: 'Mr. Foobar',
-    role: 'Founder @ Cool Startup',
-    avatarSrc: avatarPlaceholder,
-    socialUrl: '',
-    quote: 'This product makes me cooler than I already am.',
-  },
-  {
-    name: 'Jamie',
-    role: 'Happy Customer',
-    avatarSrc: avatarPlaceholder,
-    socialUrl: '#',
-    quote: 'My cats love it!',
-  },
-];
-
-export const faqs = [
-  {
-    id: 1,
-    question: 'Whats the meaning of life?',
-    answer: '42.',
-    href: 'https://en.wikipedia.org/wiki/42_(number)',
-  },
-];
-export const footerNavigation = {
-  app: [
-    { name: 'Documentation', href: DOCS_URL }
-  ],
-  company: [
-    { name: 'About', href: 'https://wasp-lang.dev' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-  ],
-};
