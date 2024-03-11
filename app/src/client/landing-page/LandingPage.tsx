@@ -31,7 +31,7 @@ export default function LandingPage() {
               className='flex items-center -m-1.5 p-1.5 text-gray-900 duration-300 ease-in-out hover:text-yellow-500'
             >
               <NavLogo />
-              <span className='ml-2 text-sm font-semibold leading-6 dark:text-white'>Your Saas</span>
+              <span className='ml-2 text-sm font-semibold leading-6 dark:text-white'>RC ASCEND</span>
             </a>
           </div>
           <div className='flex lg:hidden'>
@@ -150,29 +150,42 @@ export default function LandingPage() {
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
                 <h1 className='text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white'>
-                  Some <span className='italic'>cool</span> words about your product
+                  The only <span className='italic'>Note-taking</span> app you'll need
                 </h1>
                 <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
-                  With some more exciting words about your product!
+                  its everything you need to be productive
                 </p>
-                <div className='mt-10 flex items-center justify-center gap-x-6'>
-                  <a
-                    href={DOCS_URL}
-                    className='rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-yellow-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
-                  >
+                <div className='mt-15 flex items-center justify-center gap-x-6'>
+                <Link to='/signup' className='rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-yellow-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'>
                     Get Started <span aria-hidden='true'>→</span>
-                  </a>
+                </Link>
                 </div>
               </div>
-              <div className='mt-14 flow-root sm:mt-14 '>
-                <div className='-m-2 rounded-xl  lg:-m-4 lg:rounded-2xl lg:p-4'>
-                  <img
-                    src={openSaasBanner}
-                    alt='App screenshot'
-                    width={2432}
-                    height={1442}
-                    className='rounded-md shadow-2xl ring-1 ring-gray-900/10'
-                  />
+              {/* Feature section */}
+              <div id='features' className='mx-auto mt-20 max-w-7xl px-6 lg:px-8'>
+                <div className='mx-auto max-w-2xl text-center'>
+                  <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
+                    Unlock <span className='text-yellow-500'>Premium</span> Features
+                  </p>
+                  <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-white'>
+                    Work smarter,
+                    <br /> not harder.
+                  </p>
+                </div>
+                <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
+                  <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
+                    {features.map((feature) => (
+                      <div key={feature.name} className={`relative pl-16`}>
+                        <dt className='text-base font-semibold leading-7 text-gray-900 dark:text-white'>
+                          <div className='absolute left-0 top-0 flex h-10 w-10 items-center justify-center border border-yellow-400 bg-yellow-100/50 dark:bg-boxdark rounded-lg'>
+                            <div className='text-2xl'>{feature.icon}</div>
+                          </div>
+                          {feature.name}
+                        </dt>
+                        <dd className='mt-2 text-base leading-7 text-gray-600 dark:text-white'>{feature.description}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
               </div>
             </div>
@@ -243,34 +256,6 @@ export default function LandingPage() {
                 />
               </svg>
             </div>
-          </div>
-        </div>
-
-        {/* Feature section */}
-        <div id='features' className='mx-auto mt-48 max-w-7xl px-6 lg:px-8'>
-          <div className='mx-auto max-w-2xl text-center'>
-            <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
-              The <span className='text-yellow-500'>Best</span> Features
-            </p>
-            <p className='mt-6 text-lg leading-8 text-gray-600 dark:text-white'>
-              Don't work harder.
-              <br /> Work smarter.
-            </p>
-          </div>
-          <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
-            <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
-              {features.map((feature) => (
-                <div key={feature.name} className={`relative pl-16`}>
-                  <dt className='text-base font-semibold leading-7 text-gray-900 dark:text-white'>
-                    <div className='absolute left-0 top-0 flex h-10 w-10 items-center justify-center border border-yellow-400 bg-yellow-100/50 dark:bg-boxdark rounded-lg'>
-                      <div className='text-2xl'>{feature.icon}</div>
-                    </div>
-                    {feature.name}
-                  </dt>
-                  <dd className='mt-2 text-base leading-7 text-gray-600 dark:text-white'>{feature.description}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
 
