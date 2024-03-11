@@ -7,19 +7,19 @@ export const navigation = [
 ];
 export const features = [
   {
-    name: 'Cool Feature #1',
+    name: 'Add Notes',
     description: 'Describe your cool feature here.',
     icon: '🤝',
     href: DOCS_URL,
   },
   {
-    name: 'Cool Feature #2',
+    name: 'Mark as Completed',
     description: 'Describe your cool feature here.',
     icon: '🔐',
     href: DOCS_URL,
   },
   {
-    name: 'Cool Feature #3',
+    name: 'Delete Notes',
     description: 'Describe your cool feature here.',
     icon: '🥞',
     href: DOCS_URL,

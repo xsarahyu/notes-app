@@ -150,11 +150,11 @@ export default function LandingPage() {
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
                 <h1 className='text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white'>
-                  The only <span className='italic'>Note-taking</span> app you'll need
+                  The only <span className='italic text-yellow-500'>Notes app</span> you'll need
                 </h1>
-                <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
-                  its everything you need to be productive
-                </p>
+                {/* <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
+                  it's everything you need to be productive
+                </p> */}
                 <div className='mt-15 flex items-center justify-center gap-x-6'>
                 <Link to='/signup' className='rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-yellow-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'>
                     Get Started <span aria-hidden='true'>→</span>
@@ -163,7 +163,7 @@ export default function LandingPage() {
               </div>
               {/* Feature section */}
               <div id='features' className='mx-auto mt-20 max-w-7xl px-6 lg:px-8'>
-                <div className='mx-auto max-w-2xl text-center'>
+                {/* <div className='mx-auto max-w-2xl text-center'>
                   <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
                     Unlock <span className='text-yellow-500'>Premium</span> Features
                   </p>
@@ -171,7 +171,7 @@ export default function LandingPage() {
                     Work smarter,
                     <br /> not harder.
                   </p>
-                </div>
+                </div> */}
                 <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
                   <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
                     {features.map((feature) => (
@@ -193,7 +193,7 @@ export default function LandingPage() {
         </div>
 
         {/* Clients section */}
-        <div className='mt-12 mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-between gap-y-6'>
+        {/* <div className='mt-12 mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-between gap-y-6'>
           <h2 className='mb-6 text-center font-semibold tracking-wide text-gray-500 dark:text-white'>
             Built with / Used by:
           </h2>
@@ -257,10 +257,10 @@ export default function LandingPage() {
               </svg>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Testimonial section */}
-        <div className='mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8'>
+        {/* <div className='mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8'>
           <div className='relative sm:left-5 -m-2 rounded-xl bg-yellow-400/20 lg:ring-1 lg:ring-yellow-500/50 lg:-m-4 '>
             <div className='relative sm:top-5 sm:right-5 bg-gray-900 dark:bg-boxdark px-8 py-20 shadow-xl sm:rounded-xl sm:px-10 sm:py-16 md:px-12 lg:px-20'>
               <h2 className='text-left text-xl font-semibold tracking-wide leading-7 text-gray-500 dark:text-white'>
@@ -286,10 +286,10 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* FAQ */}
-        <div className='mt-32 mx-auto max-w-2xl divide-y divide-gray-900/10 dark:divide-gray-200/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:py-32'>
+        {/* <div className='mt-32 mx-auto max-w-2xl divide-y divide-gray-900/10 dark:divide-gray-200/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:py-32'>
           <h2 className='text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-white'>
             Frequently asked questions
           </h2>
@@ -310,7 +310,7 @@ export default function LandingPage() {
               </div>
             ))}
           </dl>
-        </div>
+        </div> */}
       </main>
 
       {/* Footer */}
