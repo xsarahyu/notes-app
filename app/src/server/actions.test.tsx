@@ -2,18 +2,19 @@ import { describe, it, expect, vi } from 'vitest';
 import { createTask } from './actions';
 
 // Mock context object
-const mockContext = {
-    user: { id: 1 },
-    entities: {
-      Task: {
-        create: vi.fn().mockImplementation(({ data }) => Promise.resolve({
-          id: 1, // Assuming ID is always 1 for simplicity
-          description: data.description, // Reflect the provided description
-          user: { connect: { id: 1 } },
-        })),
-      },
+const mockContext: any = {
+  user: { id: 1 },
+  entities: {
+    Task: {
+      create: vi.fn().mockImplementation(({ data }) => Promise.resolve({
+        id: 1,
+        description: data.description,
+        user: { connect: { id: 1 } },
+      })),
     },
-  };
+  },
+};
+
   
 
 describe('createTask', () => {
