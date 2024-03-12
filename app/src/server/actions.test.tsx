@@ -129,7 +129,7 @@ describe('updateTask', () => {
     expect(result).toEqual({ id: taskId, ...updateData });
   });
   it('throws an authorization error when the user is not present in context', async () => {
-    expect.assertions(2); // You expect two assertions to be called within this block
+    expect.assertions(2); // There are two assertions to be called within this block
   
     const mockUnauthorizedContext: any = {}; // Context without a user
     const taskId = '1';
