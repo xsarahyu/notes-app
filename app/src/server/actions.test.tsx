@@ -1,7 +1,6 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { createTask, deleteTask, updateTask } from './actions';
 import { HttpError } from 'wasp/server';
-import { throwValidationError } from 'wasp/auth/validation';
 
 vi.mock('openai', () => {
   // We need to mock for openai or you will run into a issue w/ browswer ui for vitest
@@ -16,26 +15,35 @@ vi.mock('openai', () => {
   };
 });
 
-// Mock context object
-const mockContext: any = {
-  user: { id: 1 },
-  entities: {
-    Task: {
-      create: vi.fn().mockImplementation(({ data }) => Promise.resolve({
-        id: 1,
-        description: data.description,
-        user: { connect: { id: 1 } },
-      })),
-      delete: vi.fn().mockResolvedValue({
-        id: 1, // Assuming the delete operation returns the id of the deleted task as confirmation
-      }),
-      update: vi.fn().mockImplementation(({ where, data }) => Promise.resolve({
-        id: where.id,
-        ...data,
-      })),
+let mockContext: any;
+
+beforeEach(() => {
+  // Reset the mockContext before each test
+  mockContext = {
+    user: { id: 1 },
+    entities: {
+      Task: {
+        create: vi.fn().mockImplementation(({ data }) => Promise.resolve({
+          id: 1,
+          description: data.description,
+          user: { connect: { id: 1 } },
+        })),
+        delete: vi.fn().mockResolvedValue({
+          id: 1,
+        }),
+        update: vi.fn().mockImplementation(({ where, data }) => Promise.resolve({
+          id: where.id,
+          ...data,
+        })),
+      },
     },
-  },
-};
+  };
+});
+
+afterEach(() => {
+  // Clean up and reset mocks after each test
+  vi.restoreAllMocks();
+});
 
 
 describe('createTask', () => {
