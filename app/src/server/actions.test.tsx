@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { createTask } from './actions';
 
 vi.mock('openai', () => {
-  // Mock the default export as a constructor function
+  // We need to mock for openai or you will run into a issue w/ browswer ui for vitest
   return {
     default: vi.fn().mockImplementation(() => ({
       createCompletion: vi.fn().mockResolvedValue({
