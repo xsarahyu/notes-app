@@ -10,7 +10,6 @@ vi.mock('openai', () => {
           choices: [{ text: 'Mocked completion text' }],
         },
       }),
-      // You can add more mocked methods here as needed
     })),
   };
 });
