@@ -1,6 +1,20 @@
 import { describe, it, expect, vi } from 'vitest';
 import { createTask } from './actions';
 
+vi.mock('openai', () => {
+  // Mock the default export as a constructor function
+  return {
+    default: vi.fn().mockImplementation(() => ({
+      createCompletion: vi.fn().mockResolvedValue({
+        data: {
+          choices: [{ text: 'Mocked completion text' }],
+        },
+      }),
+      // You can add more mocked methods here as needed
+    })),
+  };
+});
+
 // Mock context object
 const mockContext: any = {
   user: { id: 1 },
@@ -14,8 +28,6 @@ const mockContext: any = {
     },
   },
 };
-
-  
 
 describe('createTask', () => {
   it('creates a task successfully', async () => {
