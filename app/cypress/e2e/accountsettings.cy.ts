@@ -1,18 +1,24 @@
+//Sets the username as a unique user
+const timestampaccountpage = new Date().getTime()
+const globalusernameaccountpage = `user${timestampaccountpage}`
+const globalpasswordaccountpage = "newpassword1"
+
+// Creates a new user before test
+beforeEach(function() {
+  cy.visit('/signup');   
+    // Fill out the sign-up form with appropriate data
+    cy.get('input[name=username]').type(globalusernameaccountpage);
+    cy.get('input[name=password]').type(globalpasswordaccountpage);
+
+    // Submit the sign-up form
+    cy.get('button[type=submit]').click();
+})
+
+
 describe('The AccountSettings Test', () => {
 
   it('test that you can click the account settings page', function () {
 
-    //Creating Usr and Pass for Login Puposes
-    const username = "testtest"
-    const password = "testtest1"
-    cy.visit('/login')
-
-    //Input username
-    cy.get('input[name=username]').type(username)
-
-    // Input password
-    cy.get('input[name=password]').type(`${password}{enter}`)
-  
     // Go back to the app main page
     cy.visit('/demo-app')
 

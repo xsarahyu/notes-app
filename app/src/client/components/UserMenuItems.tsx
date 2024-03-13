@@ -14,7 +14,7 @@ export const UserMenuItems = ({ user, setMobileMenuOpen }: { user?: Partial<User
   return (
     <>
       <ul
-        id="dropdownmenu" 
+        id='dropdownmenu' 
         className={`flex flex-col gap-5 border-b border-stroke py-4 dark:border-strokedark ${
           path === '/admin' ? 'px-6' : 'sm:px-6'
         }`}

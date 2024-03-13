@@ -1,18 +1,22 @@
+//Sets the username as a unique user
+const timestampdocpage = new Date().getTime()
+const globalusernamedocpage = `user${timestampdocpage}`
+const globalpassworddocpage = "newpassword1"
+
+// Creates a new user before test
+beforeEach(function() {
+  cy.visit('/signup');   
+    // Fill out the sign-up form with appropriate data
+    cy.get('input[name=username]').type(globalusernamedocpage);
+    cy.get('input[name=password]').type(globalpassworddocpage);
+
+    // Submit the sign-up form
+    cy.get('button[type=submit]').click();
+})
+
 describe('The Documentation Page', () => {
 
   it('test that you can click the documentation page', function () {
-
-    //Creating Usr and Pass for Login Puposes
-    const username = "testtest"
-    const password = "testtest1"
-    cy.visit('/login')
-
-    //Input username
-    cy.get('input[name=username]').type(username)
-
-    // Input password
-    cy.get('input[name=password]').type(`${password}{enter}`)
-  
     // Go back to the app main page
     cy.visit('/demo-app')
 
