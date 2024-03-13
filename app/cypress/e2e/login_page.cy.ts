@@ -2,19 +2,22 @@ describe('The Login Page', () => {
 
   it('test that you can login to the app', function () {
 
-    //Creating Usr and Pass for Login Puposes
-    const username = "test"
-    const password = "testing1"
+    //Created a Custom Command: Goes to sign up page and creates a user 
+    cy.createUser()
+    
     cy.visit('/login')
 
-    //Input username
-    cy.get('input[name=username]').type(username)
+    // Access input element "activeUser" with properties usr and pwd
+    cy.get('@activeUser').then(activeUser => {
 
-    // Input password
-    cy.get('input[name=password]').type(`${password}{enter}`)
+      //Input username w/ object 
+      cy.get('input[name=username]').type(activeUser.username)
 
-    // we should be redirected to /demo-app
-    cy.url().should('include', '/demo-app')
+      // Input password w/ object 
+      cy.get('input[name=password]').type(`${activeUser.password}{enter}`)
 
+      // we should be redirected to /demo-app
+      cy.url().should('include', '/demo-app')
+    });
   })
 })
