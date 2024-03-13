@@ -1,6 +1,7 @@
 describe('The Sign-up Page', () => {
 
   it('allows a user to sign up', () => {
+
     //Created a Custom Command: Goes to sign up page and creates a user 
     cy.createUser()
 
@@ -11,3 +12,4 @@ describe('The Sign-up Page', () => {
     cy.contains('Add Note').should('be.visible');
   })
 })
+
