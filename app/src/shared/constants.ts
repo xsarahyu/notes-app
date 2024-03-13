@@ -6,7 +6,7 @@ export enum TierIds {
   ENTERPRISE = 'enterprise-tier',
 }
 
-export const DOCS_URL = 'https://docs.opensaas.sh';
+export const DOCS_URL = 'https://github.com/xsarahyu/notes-app';
 export const BLOG_URL = 'https://docs.opensaas.sh/blog';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
