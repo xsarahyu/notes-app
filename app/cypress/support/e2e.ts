@@ -14,12 +14,17 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+// import './commands'
+
+// cypress/support/e2e.ts
+import { registerCommands } from './commands'
+
+registerCommands()
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-//TEMP FIX: 
+//TEMP FIX (for issue prompted by fullstack app wasp): 
   //This event handler captures uncaught exceptions, specifically filtering out errors related to "Unexpected end of input" to prevent them from disrupting test execution credit: https://docs.cypress.io/api/cypress-api/catalog-of-events#To-conditionally-turn-off-uncaught-exception-handling-for-a-certain-error
 Cypress.on('uncaught:exception', (err, runnable) => {
   
@@ -31,3 +36,4 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   // we still want to ensure there are no other unexpected
   // errors, so we let them fail the test
 })
+
