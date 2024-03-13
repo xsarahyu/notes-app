@@ -98,3 +98,68 @@ To run Cypress for your project, follow these steps:
 9. To continue testing other specs, click on the "specs" label in the sidebar to return to the main page of the Cypress Test Runner.
 
 10. From the main page, you can select and run other test files one by one, following the same process as described above.
+
+
+## Test Cases Overview
+
+### LoginPage (Cypress)
+- **Test Suite Description:** The Login Page
+  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/login_page.cy.ts#L1)
+
+  - **Specific Test Case:**
+    - Test that you can login to the app
+      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/login_page.cy.ts#L3)
+      - Custom Cypress command: `cy.createUser()`
+      - Command to visit the login page: `cy.visit('/login')`
+      - Command to type username: `cy.get('@activeUser').then(activeUser => cy.get('input[name=username]').type(activeUser.username))`
+      - Command to type password and submit form: `cy.get('@activeUser').then(activeUser => cy.get('input[name=password]').type(`${activeUser.password}{enter}`))`
+      - Command to verify successful login: `cy.url().should('include', '/demo-app')`
+
+### AccountSettings (Cypress)
+- **Test Suite Description:** The AccountSettings Test
+  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L1)
+
+  - **Specific Test Case:**
+    - Test that you can click the account settings page
+      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L3)
+      - Custom Cypress command: `cy.createUser()`
+      - Command to set viewport size: `cy.viewport(1280, 800)`
+      - Command to click dropdown menu: `cy.get('#dropdownmenu').click({force: true})`
+      - Command to click account settings button: `cy.get('#accountsettingsbutton').click({force: true})`
+      - Command to verify successful navigation to account settings page: `cy.url().should('eq', 'http://localhost:3000/account')`
+
+### DocumentationPage (Cypress)
+- **Test Suite Description:** The Documentation Page
+  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/documentation_page.cy.ts#L1)
+
+  - **Specific Test Case:**
+    - Test that you can click the documentation page
+      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/documentation_page.cy.ts#L3)
+      - Custom Cypress command: `cy.createUser()`
+      - Command to set viewport size: `cy.viewport(1280, 800)`
+      - Command to click documentation link: `cy.get('a').contains('Documentation').click()`
+      - Command to verify successful navigation to documentation page: `cy.origin('https://github.com/xsarahyu/notes-app', () => cy.url().should('eq', 'https://github.com/xsarahyu/notes-app'))`
+
+### LogOut Page (Cypress)
+- **Test Suite Description:** The Logout Test
+  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/logout.cy.ts#L1)
+
+  - **Specific Test Case:**
+    - Test that you can click logout and it will log the user out
+      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/logout.cy.ts#L3)
+      - Custom Cypress command: `cy.createUser()`
+      - Command to set viewport size: `cy.viewport(1280, 800)`
+      - Command to click dropdown menu: `cy.get('#dropdownmenu').click({force: true})`
+      - Command to click logout button: `cy.get('#logoutbutton').click({force: true})`
+      - Command to verify successful logout and redirection to login page: `cy.url().should('eq', 'http://localhost:3000/login')`
+
+### SignUp Page (Cypress)
+- **Test Suite Description:** The Sign-up Page
+  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/signup_page.cy.ts#L1)
+
+  - **Specific Test Case:**
+    - Allows a user to sign up
+      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/signup_page.cy.ts#L3)
+      - Custom Cypress command: `cy.createUser()`
+      - Command to verify successful signup and navigation to demo page: `cy.url().should('include', '/demo-app')`
+      - Command to verify successful sign-up message: `cy.contains('Add Note').should('be.visible')`
