@@ -1,165 +1,136 @@
-## Welcome to your new SaaS App! 🎉
-<a href="https://www.producthunt.com/posts/open-saas?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-open&#0045;saas" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=436467&theme=light" alt="Open&#0032;SaaS - Open&#0045;source&#0032;&#0038;&#0032;100&#0037;&#0032;free&#0032;React&#0032;&#0038;&#0032;Node&#0046;js&#0032;SaaS&#0032;starter&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+# 📝 Notes App
 
-https://github.com/wasp-lang/open-saas/assets/70215737/5ff289b1-12b9-4b46-aa90-a6a3122de93e
+## 👋 Introduction
+Welcome to the [**Notes App**](https://ascend-notes-app-client.fly.dev/), a simple and user-friendy application for managing notes. The application is powered by [Wasp](https://wasp-lang.dev), a fullstack React, NodeJS, and Prisma framework.
 
-You've decided to build a SaaS app with the Open SaaS template. Great choice! 
+## ⭐ Features
+- 🔐 Authentication: Securely register for and access your account
+- ✍️ Create notes: Easily compose and save your thoughts
+- ✅ Mark completed: Indicate task completion with a simple checkbox
+- 🗑️ Delete notes: Seamlessly remove unwanted notes
+- 💾 Auto-save notes: Enjoy peace of mind as notes are saved automatically
 
-This template is:
+## 🚀 Getting Started
+1. Install [Wasp](https://docs.opensaas.sh/start/getting-started/)
+1. Clone the repository: https://github.com/xsarahyu/notes-app.git
+2. Navigate to the app directory: `cd app`
+3. Run the server: `wasp start db`
+4. Run the client: `wasp start`
+5. The app is now live at http://localhost:3000!
 
-1. fully open-source
-2. completely free to use and distribute
-3. comes with a ton of features out of the box!
-4. focused on free, open-source services, where possible
+## 🗂️ (Relevant) File Structure
+The Wasp template provides many features that are irrelevant to the notes app, like Stripe payments, Google Analytics, and more. The following are the components and pages we utilized:
 
-🧑‍💻 Check it out in action here: [OpenSaaS.sh](https://opensaas.sh)  
-📚 Check out the Docs here: [Open SaaS Docs](https://docs.opensaas.sh)
+app/src
+├── client
+│   ├── admin
+│   │   ├── common
+│   │   │   ├── Loader
+│   │   │   |   ├── index.tsx
+│   │   ├── components
+│   │   │   ├── DarkModeSwitcher.tsx
+|   |   |   ├── Header.tsx
+|   |   |   ├── Sidebar.tsx
+|   |   |   ├── SidebarLinkGroup.tsx
+│   │   ├── layout
+│   │   │   ├── DefaultLayout.tsx
+│   ├── app
+│   │   ├── DemoAppPage.tsx
+│   ├── auth
+│   │   ├── authWrapper.tsx
+│   │   ├── LoginPage.tsx
+│   │   ├── SignupPage.tsx
+│   ├── components
+│   │   ├── AppNavBar.tsx
+│   │   ├── DropdownUser.tsx
+│   │   ├── UserMenuItems.tsx
+│   ├── hooks
+│   │   ├── useColorMode.tsx
+│   │   ├── useLocalStorage.tsx
+│   ├── landing-page
+│   │   ├── contentSections.tsx
+│   │   ├── LandingPage.tsx
+│   ├── App.tsx
+│   ├── Main.css
+├── server
+│   ├── auth
+│   │   ├── setUsername.tsx
+│   ├── actions.ts
+├── shared
+│   ├── constants.ts
 
-## What's inside?
+<br>
+<br>
+<hr style="border: 5px solid black">
+<br>
+<br>
 
-The template itself is built on top of some very powerful tools and frameworks, including:
+# 🧪 Testing
+## Unit & Integration Tests — Using Vitest
+To run Vitest tests locally:
+1. Navigate to the app directory: `cd app`
+2. Install dependencies: `npm install`
+3. Run the tests: `npm run test-ui` (this is a script that we made)
 
-- 🐝 [Wasp](https://wasp-lang.dev) - a full-stack React, NodeJS, Prisma framework with superpowers
-- 🚀 [Astro](https://starlight.astro.build/) - Astro's lightweight "Starlight" template for documentation and blog
-- 💸 [Stripe](https://stripe.com) - for products and payments
-- 📈 [Plausible](https://plausible.io) or [Google](https://analytics.google.com/) Analytics
-- 🤖 [OpenAI](https://openai.com) - OpenAI API integrated into the app or [Replicate](https://replicate.com/) (coming soon 👀)
-- 📦 [AWS S3](https://aws.amazon.com/s3/) - for file uploads
-- 📧 [SendGrid](https://sendgrid.com), [MailGun](https://mailgun.com), or SMTP - for email sending
-- 💅 [TailwindCSS](https://tailwindcss.com) - for styling
-- 🧑‍💼 [TailAdmin](https://tailadmin.com/) - admin dashboard & components for TailwindCSS
+### 👉 DarkModeSwitcher component
+#### Test #1: The DarkModeSwitcher component is a UI switcher element designed to toggle between light and dark color modes. The test ensures that the switching functionality works as expected.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/admin/components/DarkModeSwitcher.test.jsx#L6-L24
 
-Because we're using Wasp as the full-stack framework, we can leverage a lot of its features to build our SaaS in record time, including:
+### 👉 DemoAppPage
+#### Test #1: Ensures that users can create a new note by entering text into the input field and clicking the "Add Note" button.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/app/DemoAppPage.test.tsx#L13-L54
 
-- 🔐 [Full-stack Authentication](https://wasp-lang.dev/docs/auth/overview) - Email verified + social Auth in a few lines of code.
-- ⛑ [End-to-end Type Safety](https://wasp-lang.dev/docs/data-model/operations/overview) - Type your backend functions and get inferred types on the front-end automatically, without the need to install or configure any third-party libraries. Oh, and type-safe Links, too!
-- 🤖 [Jobs](https://wasp-lang.dev/docs/advanced/jobs) - Run cron jobs in the background or set up queues simply by defining a function in the config file.
-- 🚀 [One-command Deploy](https://wasp-lang.dev/docs/advanced/deployment/overview) - Easily deploy via the CLI to [Fly.io](https://fly.io), or to other providers like [Railway](https://railway.app) and [Netlify](https://netlify.com).
+#### Test #2: Verifies that users can check and uncheck a note by toggling its checkbox.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/app/DemoAppPage.test.tsx#L58-L93
 
-You also get access to Wasp's diverse, helpful community if you get stuck or need help.
-- 🤝 [Wasp Discord](https://discord.gg/aCamt5wCpS)
+#### Test #3: Ensures that users can delete a note by clicking the delete button associated with it.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/app/DemoAppPage.test.tsx#L97-L134
 
+#### Test #4: Ensures that the default text elements are displayed correctly when the page is loaded.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/app/DemoAppPage.test.tsx#L137-L148
 
-Note that we've tried to get as many of the core features of a SaaS app into this template as possible, but there still might be some missing features or functionality.
+### 👉 AppNavBar component
+#### Test #1: Ensures that the navigation links in the navbar are rendered correctly.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/src/client/components/AppNavBar.test.jsx#L7-L15
 
-We could always use some help tying up loose ends, so consider [contributing](https://github.com/wasp-lang/open-saas/blob/main/CONTRIBUTING.md)!
+### 👉 LandingPage
+#### Test #1: Ensures that the header renders correctly.
+https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a307d3/app/src/client/landing-page/LandingPage.test.tsx#L16-L24
 
+#### Test #2: Ensures that the hero section renders correctly.
+https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a307d3/app/src/client/landing-page/LandingPage.test.tsx#L26-L36
 
-### Running Cypress for End-to-End Testing and Integration Testing
+#### Test #3: Ensures that the features section renders correctly.
+https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a307d3/app/src/client/landing-page/LandingPage.test.tsx#L38-L50
 
-To run Cypress for your project, follow these steps:
+#### Test #4: Verifies that clicking the "Get Started" button leads to the signup page.
+https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a307d3/app/src/client/landing-page/LandingPage.test.tsx#L54-L68
 
-1.  **Ensure you're in the project directory:** Navigate to your project directory using the terminal:
-    
-    bashCopy code
-    
-    `cd /path/to/your/project`
-    
-2.  **Install necessary dependencies:** Run the following command to install required dependencies:
-    
-    bashCopy code
-    
-    `sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb`
-    
-3.  **Install npm packages:** Next, install npm packages by running:
-    
-    bashCopy code
-    
-    `npm install`
-    
-4.  **Start your server:** Start your server using the appropriate command for your project.
-    
-5.  **Run your client-side:** Ensure your client-side application is running.
-    
-6.  **Run tests with Cypress:** Finally, execute the following command to run your Cypress tests:
-    
-    bashCopy code
-    
-    `npx cypress open`
+## Unit & End-to-End Tests — Using Cypress
+To run Cypress tests locally:
+1. Navigate to the app directory: `cd app`
+2. Install Linux dependencies: `sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb`
+3. Install other dependencies: `npm install`
+4. Run the server: `wasp start db`
+5. Run the client: `wasp start`
+6. Run the tests: `npx cypress open`
 
-## Running Cypress Tests
+### 👉 account_settings
+#### Test: The account_settings test suite verifies the functionality of accessing the account settings page.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L1C1-L19C3
 
-1. After executing the command `npx cypress open`, the Cypress Test Runner interface will open.
+### 👉 documentation_page
+#### The documentation_page test suite verifies the functionality of accessing the documentation page.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/documentation_page.cy.ts#L1-L22
 
-2. In the Cypress Test Runner, you'll see a list of available tests under the "Specs" section.
+### 👉 login_page
+#### The login_page test suite verifies the functionality of logging in.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/login_page.cy.ts#L1-L23
 
-3. Click on the test suite labeled "e2e" or any other relevant label depending on your project structure. This test suite should be configured for end-to-end testing.
+### 👉 logout
+#### The logout suite verifies the functionality of logging out.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/logout.cy.ts#L1-L20
 
-4. Next, you'll be prompted to choose a browser to run the tests in. Select "Electron" from the dropdown menu. This is typically under the "Run all specs" button.
-
-5. After selecting "Start E2E Testing in Electron", Cypress will open a new window or tab containing the page where all the end-to-end tests are executed.
-
-6. In the Cypress Test Runner interface, you'll see a list of available test files under the "specs" section. Select the specific test file you want to run by clicking on it.
-
-7. The selected test will begin execution. During execution, you'll see the test steps being performed in the browser window/tab that Cypress opened.
-
-8. If the test passes, the screen will turn green. If it fails, the screen will turn red, indicating which test step failed.
-
-9. To continue testing other specs, click on the "specs" label in the sidebar to return to the main page of the Cypress Test Runner.
-
-10. From the main page, you can select and run other test files one by one, following the same process as described above.
-
-
-## Test Cases Overview
-
-### LoginPage (Cypress)
-- **Test Suite Description:** The Login Page
-  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/login_page.cy.ts#L1)
-
-  - **Specific Test Case:**
-    - Test that you can login to the app
-      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/login_page.cy.ts#L3)
-      - Custom Cypress command: `cy.createUser()`
-      - Command to visit the login page: `cy.visit('/login')`
-      - Command to type username: `cy.get('@activeUser').then(activeUser => cy.get('input[name=username]').type(activeUser.username))`
-      - Command to type password and submit form: `cy.get('@activeUser').then(activeUser => cy.get('input[name=password]').type(`${activeUser.password}{enter}`))`
-      - Command to verify successful login: `cy.url().should('include', '/demo-app')`
-
-### AccountSettings (Cypress)
-- **Test Suite Description:** The AccountSettings Test
-  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L1)
-
-  - **Specific Test Case:**
-    - Test that you can click the account settings page
-      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/account_settings.cy.ts#L3)
-      - Custom Cypress command: `cy.createUser()`
-      - Command to set viewport size: `cy.viewport(1280, 800)`
-      - Command to click dropdown menu: `cy.get('#dropdownmenu').click({force: true})`
-      - Command to click account settings button: `cy.get('#accountsettingsbutton').click({force: true})`
-      - Command to verify successful navigation to account settings page: `cy.url().should('eq', 'http://localhost:3000/account')`
-
-### DocumentationPage (Cypress)
-- **Test Suite Description:** The Documentation Page
-  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/documentation_page.cy.ts#L1)
-
-  - **Specific Test Case:**
-    - Test that you can click the documentation page
-      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/documentation_page.cy.ts#L3)
-      - Custom Cypress command: `cy.createUser()`
-      - Command to set viewport size: `cy.viewport(1280, 800)`
-      - Command to click documentation link: `cy.get('a').contains('Documentation').click()`
-      - Command to verify successful navigation to documentation page: `cy.origin('https://github.com/xsarahyu/notes-app', () => cy.url().should('eq', 'https://github.com/xsarahyu/notes-app'))`
-
-### LogOut Page (Cypress)
-- **Test Suite Description:** The Logout Test
-  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/logout.cy.ts#L1)
-
-  - **Specific Test Case:**
-    - Test that you can click logout and it will log the user out
-      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/logout.cy.ts#L3)
-      - Custom Cypress command: `cy.createUser()`
-      - Command to set viewport size: `cy.viewport(1280, 800)`
-      - Command to click dropdown menu: `cy.get('#dropdownmenu').click({force: true})`
-      - Command to click logout button: `cy.get('#logoutbutton').click({force: true})`
-      - Command to verify successful logout and redirection to login page: `cy.url().should('eq', 'http://localhost:3000/login')`
-
-### SignUp Page (Cypress)
-- **Test Suite Description:** The Sign-up Page
-  - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/signup_page.cy.ts#L1)
-
-  - **Specific Test Case:**
-    - Allows a user to sign up
-      - [Link to file](https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/signup_page.cy.ts#L3)
-      - Custom Cypress command: `cy.createUser()`
-      - Command to verify successful signup and navigation to demo page: `cy.url().should('include', '/demo-app')`
-      - Command to verify successful sign-up message: `cy.contains('Add Note').should('be.visible')`
+### 👉 signup_page
+#### The signup_page test suite validates the functionality of the sign-up process.
+https://github.com/xsarahyu/notes-app/blob/aba16d63afe8ea40a88c16a06c155e9a5952be5b/app/cypress/e2e/signup_page.cy.ts#L1-L14
