@@ -11,7 +11,6 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
 // -- This is a child command --
@@ -25,6 +24,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      createUser(): Chainable<void>
+    }
+  }
+}
+
 // declare global {
 //   namespace Cypress {
 //     interface Chainable {
@@ -35,3 +42,23 @@
 //     }
 //   }
 // }
+// cypress/support/commands.ts
+/* 
+* @param 
+*/
+export function registerCommands(){
+  Cypress.Commands.add('createUser', () => {
+      // Visit the sign-up page
+      cy.visit('/signup');
+      
+      const timestampaccountpage = new Date().getTime()
+      const usr = `user${timestampaccountpage}`
+      const pwd = "newpassword1"
+      // Fill out the sign-up form with appropriate data
+      cy.get('input[name=username]').type(usr);
+      cy.get('input[name=password]').type(pwd);
+
+      // Submit the sign-up form
+      cy.get('button[type=submit]').click();
+  })
+}
