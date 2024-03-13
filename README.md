@@ -43,3 +43,36 @@ You also get access to Wasp's diverse, helpful community if you get stuck or nee
 Note that we've tried to get as many of the core features of a SaaS app into this template as possible, but there still might be some missing features or functionality.
 
 We could always use some help tying up loose ends, so consider [contributing](https://github.com/wasp-lang/open-saas/blob/main/CONTRIBUTING.md)!
+
+
+### Running Cypress for End-to-End Testing and Integration Testing
+
+To run Cypress for your project, follow these steps:
+
+1.  **Ensure you're in the project directory:** Navigate to your project directory using the terminal:
+    
+    bashCopy code
+    
+    `cd /path/to/your/project`
+    
+2.  **Install necessary dependencies:** Run the following command to install required dependencies:
+    
+    bashCopy code
+    
+    `sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb`
+    
+3.  **Install npm packages:** Next, install npm packages by running:
+    
+    bashCopy code
+    
+    `npm install`
+    
+4.  **Start your server:** Start your server using the appropriate command for your project.
+    
+5.  **Run your client-side:** Ensure your client-side application is running.
+    
+6.  **Run tests with Cypress:** Finally, execute the following command to run your Cypress tests:
+    
+    bashCopy code
+    
+    `npx cypress open`
