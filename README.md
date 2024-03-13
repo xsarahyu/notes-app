@@ -76,3 +76,25 @@ To run Cypress for your project, follow these steps:
     bashCopy code
     
     `npx cypress open`
+
+## Running Cypress Tests
+
+1. After executing the command `npx cypress open`, the Cypress Test Runner interface will open.
+
+2. In the Cypress Test Runner, you'll see a list of available tests under the "Specs" section.
+
+3. Click on the test suite labeled "e2e" or any other relevant label depending on your project structure. This test suite should be configured for end-to-end testing.
+
+4. Next, you'll be prompted to choose a browser to run the tests in. Select "Electron" from the dropdown menu. This is typically under the "Run all specs" button.
+
+5. After selecting "Start E2E Testing in Electron", Cypress will open a new window or tab containing the page where all the end-to-end tests are executed.
+
+6. In the Cypress Test Runner interface, you'll see a list of available test files under the "specs" section. Select the specific test file you want to run by clicking on it.
+
+7. The selected test will begin execution. During execution, you'll see the test steps being performed in the browser window/tab that Cypress opened.
+
+8. If the test passes, the screen will turn green. If it fails, the screen will turn red, indicating which test step failed.
+
+9. To continue testing other specs, click on the "specs" label in the sidebar to return to the main page of the Cypress Test Runner.
+
+10. From the main page, you can select and run other test files one by one, following the same process as described above.
