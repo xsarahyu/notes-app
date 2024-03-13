@@ -55,6 +55,15 @@ export function registerCommands(){
       const timestampaccountpage = new Date().getTime()
       const usr = `user${timestampaccountpage}`
       const pwd = "newpassword1"
+
+      const activeUser = {
+        username: usr,
+        password: pwd
+      };
+      
+      //Create a custom command to return a user (object)
+      cy.wrap(activeUser).as('activeUser');
+
       // Fill out the sign-up form with appropriate data
       cy.get('input[name=username]').type(usr);
       cy.get('input[name=password]').type(pwd);
