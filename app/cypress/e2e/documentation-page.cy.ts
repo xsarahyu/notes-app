@@ -13,10 +13,10 @@ describe('The Documentation Page', () => {
     cy.get('a').contains('Documentation').click()
 
     // Allows the test to bypass a single origin url
-    cy.origin('https://docs.opensaas.sh', () => {
+    cy.origin('https://github.com/xsarahyu/notes-app', () => {
 
       // Test to see if the current url equals the document page
-      cy.url().should('eq', 'https://docs.opensaas.sh/')
+      cy.url().should('eq', 'https://github.com/xsarahyu/notes-app')
     })
   })
 })
