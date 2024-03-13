@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
+//To be able to access this command in different files 
 declare global {
   namespace Cypress {
     interface Chainable {
