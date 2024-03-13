@@ -14,6 +14,7 @@ export const UserMenuItems = ({ user, setMobileMenuOpen }: { user?: Partial<User
   return (
     <>
       <ul
+        id='dropdownmenu' 
         className={`flex flex-col gap-5 border-b border-stroke py-4 dark:border-strokedark ${
           path === '/admin' ? 'px-6' : 'sm:px-6'
         }`}
@@ -31,6 +32,7 @@ export const UserMenuItems = ({ user, setMobileMenuOpen }: { user?: Partial<User
         ) : null}
         <li>
           <Link
+            id= 'accountsettingsbutton'
             to='/account'
             onClick={handleMobileMenuClick}
             className='flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-yellow-500'
@@ -74,7 +76,8 @@ export const UserMenuItems = ({ user, setMobileMenuOpen }: { user?: Partial<User
           </li>
         </ul>
       )}
-      <button
+      <button 
+        id= 'logoutbutton'
         onClick={() => logout()}
         className={`flex items-center gap-3.5 py-4 text-sm font-medium duration-300 ease-in-out hover:text-yellow-500 ${
           path === '/admin' ? 'px-6' : 'sm:px-6'
