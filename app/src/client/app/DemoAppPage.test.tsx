@@ -6,14 +6,9 @@ import DemoAppPage from './DemoAppPage';
 //Simulating a server 
 const { mockQuery} = mockServer();
 
-//Tests to focus on DemoAppPage:
-
-  //Testing CRUD notes functionality where inside I am testing create note, update note, delete note
-    //*LEFT TO DO: READ A LIST OF noteS */
 describe('Testing Note CRUD', () => {
 
-
-  // TEST 1: Confirm user sees text default "Remember to..." in text field, can add note, see newly created note
+  // Confirm user sees text default "Remember to..." in text field, can add note and see newly created note
   test('Testing creating new note', async () => {
 
     //Creating Mocked note
@@ -53,8 +48,7 @@ describe('Testing Note CRUD', () => {
     });
   });
 
-
-  // TEST 2: Test Checking note and Unchecking note
+  // Test Checking note and Unchecking note
   test('Testing note checkbox feature', async () => {
 
     //Creating Mocked note
@@ -80,12 +74,10 @@ describe('Testing Note CRUD', () => {
       // Assert that the checkbox is not checked
       expect(screen.getByRole("checkbox")).not.toBeChecked();
       const checkbox = screen.getByRole("checkbox");
-      console.log(checkbox);
 
-      //Clicking checkbox
       fireEvent.click(checkbox)
       
-      // Wait for state to update. Check checkbox is checked
+      // Wait for state to update: Checkbox is checked
       waitFor(() => {
         expect(checkbox).toBeChecked();
       });
