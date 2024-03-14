@@ -31,9 +31,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   if (err.message.includes('Unexpected end of input')) {
     return false
   }
-
-
-  // we still want to ensure there are no other unexpected
-  // errors, so we let them fail the test
 })
 
