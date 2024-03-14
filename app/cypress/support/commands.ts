@@ -44,9 +44,7 @@ declare global {
 //   }
 // }
 // cypress/support/commands.ts
-/* 
-* @param 
-*/
+
 export function registerCommands(){
   Cypress.Commands.add('createUser', () => {
       // Visit the sign-up page
@@ -61,7 +59,7 @@ export function registerCommands(){
         password: pwd
       };
       
-      //Create a custom command to return a user (object)
+      //Create a custom command to return a user
       cy.wrap(activeUser).as('activeUser');
 
       // Fill out the sign-up form with appropriate data
