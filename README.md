@@ -116,8 +116,8 @@ To run Cypress tests locally:
 2. Install Linux dependencies: `sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb`
 3. Install other dependencies: `npm install`
 4. Run the server: `wasp start db`
-5. Run the client (in a new terminal): `wasp start`
-6. Open the Cypress test runner: `npx cypress open`
+5. Run the client (in a new terminal): `cd app` ➡️ `wasp start`
+6. Open the Cypress test runner (in a new terminal): `cd app` ➡️ `npx cypress open`
 
 The following steps occur in the Cypress test runner:
 1. In the test runner, select "E2E Testing."
