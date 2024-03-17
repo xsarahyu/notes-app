@@ -36,6 +36,7 @@ app/src
 │   │   ├── layout
 │   │   │   ├── DefaultLayout.tsx
 │   ├── app
+│   │   ├── AccountPage.tsx
 │   │   ├── DemoAppPage.tsx
 │   ├── auth
 │   │   ├── authWrapper.tsx
