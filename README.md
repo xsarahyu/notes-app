@@ -15,7 +15,7 @@ Welcome to the [**Notes App**](https://ascend-notes-app-client.fly.dev/), a simp
 1. Clone the repository: https://github.com/xsarahyu/notes-app.git
 2. Navigate to the app directory: `cd app`
 3. Run the server: `wasp start db`
-4. Run the client: `wasp start`
+4. Run the client (in a new terminal): `wasp start`
 5. The app is now live at http://localhost:3000!
 
 ## 🗂️ (Relevant) File Structure
@@ -72,30 +72,8 @@ app/src
 To run Vitest tests locally:
 1. Navigate to the app directory: `cd app`
 2. Install dependencies: `npm install`
-3. Run the tests: `npm run test-ui` (this is a script that we made)
-
-## Running Cypress Tests
-
-1. After executing the command `npx cypress open`, the Cypress Test Runner interface will open. 🚀
-
-2. In the Cypress Test Runner, you'll see a list of available tests under the "Integration Tests" section. 📝
-
-3. Click on the test suite labeled "e2e" or any other relevant label depending on your project structure. This test suite should be configured for end-to-end testing. 🔍
-
-4. Next, you'll be prompted to choose a browser to run the tests in. Select "Electron" from the dropdown menu. This is typically under the "Run all specs" button. 🌐
-
-5. After selecting "Start E2E Testing in Electron", Cypress will open a new window or tab containing the page where all the end-to-end tests are executed. 🖥️
-
-6. In the Cypress Test Runner interface, you'll see a list of available test files under the "specs" section. Select the specific test file you want to run by clicking on it. 📂
-
-7. The selected test will begin execution. During execution, you'll see the test steps being performed in the browser window/tab that Cypress opened. 🔄
-
-8. If the test passes, the screen will turn green. If it fails, the screen will turn red, indicating which test step failed. ✅❌
-
-9. To continue testing other specs, click on the "specs" label in the sidebar to return to the main page of the Cypress Test Runner. 🔙
-
-10. From the main page, you can select and run other test files one by one, following the same process as described above. 🔁
-
+3. Run the tests: `npm run test-ui` (this is a script that we made, it runs all tests and generates test coverage)
+4. You should now see test coverage in your terminal, and a browser window should open with the Vitest UI, which includes the coverage as well!
 
 ### 👉 DarkModeSwitcher component
 #### Test #1: The DarkModeSwitcher component is a UI switcher element designed to toggle between light and dark color modes. The test ensures that the switching functionality works as expected.
@@ -131,14 +109,24 @@ https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a30
 #### Test #4: Verifies that clicking the "Get Started" button leads to the signup page.
 https://github.com/xsarahyu/notes-app/blob/3639c4efd2c56d36c2a464ff166868c6a4a307d3/app/src/client/landing-page/LandingPage.test.tsx#L54-L68
 
-## Unit & End-to-End Tests — Using Cypress
+## End-to-End Tests — Using Cypress
 To run Cypress tests locally:
 1. Navigate to the app directory: `cd app`
 2. Install Linux dependencies: `sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb`
 3. Install other dependencies: `npm install`
 4. Run the server: `wasp start db`
-5. Run the client: `wasp start`
-6. Run the tests: `npx cypress open`
+5. Run the client (in a new terminal): `wasp start`
+6. Open the Cypress test runner: `npx cypress open`
+
+The following steps occur in the Cypress test runner:
+1. In the test runner, select "E2E Testing."
+2. You'll be prompted to choose a browser to run the tests in. Select "Start E2E Testing in Electron."
+3. Cypress will open a new window containing a list of all the end-to-end tests.
+4. Click on a test file to run it.
+5. The selected test will begin execution. You'll see each step being performed in real-time within the Cypress GUI.
+6. If the test passes, the screen will turn green. If it fails, the screen will turn red, indicating which step failed.
+7. To run other test files, navigate back to the main page by selecting the "Specs" label in the sidebar.
+8. From the main page, you can select and run other test files one by one.
 
 ### 👉 account_settings
 #### The account_settings test suite verifies the functionality of accessing the account settings page.
