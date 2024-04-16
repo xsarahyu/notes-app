@@ -63,7 +63,7 @@ app/src
 ```
 
 <br>
-<hr style="border: 5px solid black">
+<hr>
 <br>
 
 # 🧪 Testing
