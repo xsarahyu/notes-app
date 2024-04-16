@@ -4,11 +4,11 @@
 Welcome to the [**Notes App**](https://ascend-notes-app-client.fly.dev/), a simple and user-friendy application for managing notes. The application is powered by [Wasp](https://wasp-lang.dev), a fullstack React, NodeJS, and Prisma framework.
 
 ## ⭐ Features
-- 🔐 Authentication: Securely register for and access your account
-- ✍️ Create notes: Easily compose and save your thoughts
-- ✅ Mark completed: Indicate task completion with a simple checkbox
-- 🗑️ Delete notes: Seamlessly remove unwanted notes
-- 💾 Auto-save notes: Enjoy peace of mind as notes are saved automatically
+- 🔐 **Authentication**: Securely register for and access your account
+- ✍️ **Create notes**: Easily compose and save your thoughts
+- ✅ **Mark completed**: Indicate task completion with a simple checkbox
+- 🗑️ **Delete notes**: Seamlessly remove unwanted notes
+- 💾 **Auto-save notes**: Enjoy peace of mind as notes are saved automatically
 
 ## 🚀 Getting Started
 1. Install [Wasp](https://docs.opensaas.sh/start/getting-started/)
@@ -63,9 +63,7 @@ app/src
 ```
 
 <br>
-<br>
 <hr style="border: 5px solid black">
-<br>
 <br>
 
 # 🧪 Testing
